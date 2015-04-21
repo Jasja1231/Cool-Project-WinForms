@@ -32,6 +32,11 @@ namespace GradedLab3P4
             MyTimer.Stop();
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
 
 
     }
