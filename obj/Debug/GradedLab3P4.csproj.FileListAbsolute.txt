@@ -1,0 +1,11 @@
+h:\Windows7\Documents\Visual Studio 2012\Projects\GradedLab3P4\GradedLab3P4\bin\Debug\GradedLab3P4.exe.config
+h:\Windows7\Documents\Visual Studio 2012\Projects\GradedLab3P4\GradedLab3P4\bin\Debug\GradedLab3P4.exe
+h:\Windows7\Documents\Visual Studio 2012\Projects\GradedLab3P4\GradedLab3P4\bin\Debug\GradedLab3P4.pdb
+h:\Windows7\Documents\Visual Studio 2012\Projects\GradedLab3P4\GradedLab3P4\obj\Debug\GradedLab3P4.csprojResolveAssemblyReference.cache
+h:\Windows7\Documents\Visual Studio 2012\Projects\GradedLab3P4\GradedLab3P4\obj\Debug\GradedLab3P4.Form1.resources
+h:\Windows7\Documents\Visual Studio 2012\Projects\GradedLab3P4\GradedLab3P4\obj\Debug\GradedLab3P4.Properties.Resources.resources
+h:\Windows7\Documents\Visual Studio 2012\Projects\GradedLab3P4\GradedLab3P4\obj\Debug\GradedLab3P4.csproj.GenerateResource.Cache
+h:\Windows7\Documents\Visual Studio 2012\Projects\GradedLab3P4\GradedLab3P4\obj\Debug\GradedLab3P4.exe
+h:\Windows7\Documents\Visual Studio 2012\Projects\GradedLab3P4\GradedLab3P4\obj\Debug\GradedLab3P4.pdb
+h:\Windows7\Documents\Visual Studio 2012\Projects\GradedLab3P4\GradedLab3P4\obj\Debug\GradedLab3P4.GameForm.resources
+h:\Windows7\Documents\Visual Studio 2012\Projects\GradedLab3P4\GradedLab3P4\obj\Debug\GradedLab3P4.Field.resources
