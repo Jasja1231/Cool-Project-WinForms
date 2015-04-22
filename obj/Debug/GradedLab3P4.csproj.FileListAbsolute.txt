@@ -19,3 +19,4 @@ C:\Users\Home\Documents\GitHub\Cool-Project-WinForms\obj\Debug\GradedLab3P4.Form
 C:\Users\Home\Documents\GitHub\Cool-Project-WinForms\obj\Debug\GradedLab3P4.GameForm.resources
 C:\Users\Home\Documents\GitHub\Cool-Project-WinForms\obj\Debug\GradedLab3P4.Properties.Resources.resources
 C:\Users\Home\Documents\GitHub\Cool-Project-WinForms\obj\Debug\GradedLab3P4.csproj.GenerateResource.Cache
+C:\Users\Home\Documents\GitHub\Cool-Project-WinForms\obj\Debug\GradedLab3P4.csprojResolveAssemblyReference.cache

@@ -40,8 +40,14 @@ namespace GradedLab3P4
 
             if (m.Button == MouseButtons.Right)
             {
-                this.BackColor = Color.Black;
+                //this.BackColor = Color.Black;
                 marked = true;
+
+                ContextMenu cm = new ContextMenu();
+                cm.MenuItems.Add("Reset");
+                Button b = (Button)sender;
+                b.ContextMenu = cm;
+
             }
             else
                 if (m.Button == MouseButtons.Left)

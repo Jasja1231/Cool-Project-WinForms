@@ -14,8 +14,7 @@ namespace GradedLab3P4
 {
     public partial class Form1 : Form
     {
-        Timer MyTimer = new Timer();
-        Timer MyTimer2 = new Timer();
+       
         Bitmap image1;
         
 
@@ -23,20 +22,6 @@ namespace GradedLab3P4
         public Form1()
         {
             InitializeComponent();
-
-            //start timer for rotation
-            MyTimer2.Interval = (100);
-            MyTimer2.Tick += new EventHandler(MyTimer2_Tick);
-            
-
-            //timer for start screen
-             MyTimer.Interval = (20000); // 2 seconds = 2 * 10^3 = 2000
-             MyTimer.Tick += new EventHandler(MyTimer_Tick);
-
-             
-             MyTimer.Start();
-             MyTimer2.Start();
-            
         }
 
 
@@ -65,27 +50,32 @@ namespace GradedLab3P4
             g.DrawImage(b, new Point(0, 0));
             return returnBitmap;
          }
+          
 
-        private void MyTimer_Tick(object sender, EventArgs e)
+        
+
+        
+        
+        private void Form1_Load(object sender, EventArgs e)
         {
-            this.Close();
-            MyTimer2.Stop();
-            MyTimer.Stop();
+           image1 = (Bitmap)Image.FromFile("C:\\Users\\Home\\Documents\\GitHub\\Cool-Project-WinForms\\bin\\YinYangRedSmal.JPG", true);
+           BackColor = Color.White; //should be white
+           TransparencyKey = Color.White;
         }
 
-        private void MyTimer2_Tick(object sender, EventArgs e)
+        private void RotateTimer_Tick(object sender, EventArgs e)
         {
             image1 = rotateImage(image1, 2);
             BackgroundImage = (Image)image1;
             BackgroundImageLayout = ImageLayout.Stretch;
-           // image1.Save("C:\\Users\\Home\\Documents\\GitHub\\Cool-Project-WinForms\\YinYangRedSmal.JPG");
+            image1.Save("C:\\Users\\Home\\Documents\\GitHub\\Cool-Project-WinForms\\YinYangRedSmal.JPG");
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void CloseTimer_Tick(object sender, EventArgs e)
         {
-            image1 = (Bitmap)Image.FromFile("C:\\Users\\Home\\Documents\\GitHub\\Cool-Project-WinForms\\bin\\YinYangRedSmal.JPG", true);
-            BackColor = Color.White;
-            TransparencyKey = Color.White;
+            this.Close();
+            RotateTimer.Stop();
+            CloseTimer.Stop();
         }
 
 

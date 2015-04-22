@@ -28,7 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.RotateTimer = new System.Windows.Forms.Timer(this.components);
+            this.CloseTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
+            // 
+            // RotateTimer
+            // 
+            this.RotateTimer.Enabled = true;
+            this.RotateTimer.Tick += new System.EventHandler(this.RotateTimer_Tick);
+            // 
+            // CloseTimer
+            // 
+            this.CloseTimer.Enabled = true;
+            this.CloseTimer.Interval = 2000;
+            this.CloseTimer.Tick += new System.EventHandler(this.CloseTimer_Tick);
             // 
             // Form1
             // 
@@ -50,6 +64,9 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Timer RotateTimer;
+        private System.Windows.Forms.Timer CloseTimer;
 
 
 

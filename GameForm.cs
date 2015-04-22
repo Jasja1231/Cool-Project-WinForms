@@ -35,8 +35,6 @@ namespace GradedLab3P4
         }
 
 
-
-
         private void GameForm_Load(object sender, EventArgs e)
         {
             CreateGame(3, 3);
@@ -80,9 +78,10 @@ namespace GradedLab3P4
 
         }
 
-        private void trackBar1_Scroll(object sender, EventArgs e)
+        
+        private void trackBar_ValueChanged(object sender, EventArgs e)
         {
-
+            CreateGame(trackBar1.Value, trackBar1.Value);
         }
     }
 }
