@@ -18,9 +18,14 @@ namespace GradedLab3P4
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             var appcontx = new ApplicationContext();
+
             appcontx.MainForm = new Form1();
+
             appcontx.MainForm.Show();
+            //Application.Run(new Form1());
+
             Thread.Sleep(2000);
+
             Application.Run(new GameForm());
         }
     }

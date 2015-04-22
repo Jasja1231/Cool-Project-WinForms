@@ -22,7 +22,7 @@ namespace GradedLab3P4
             this.Visible = false;
             
             
-            MyTimer.Interval = (2002); // 2 seconds = 2 * 10^3 = 2000
+            MyTimer.Interval = (2202); // 2 seconds = 2 * 10^3 = 2000
             MyTimer.Tick += new EventHandler(MyTimer_Tick);
             MyTimer.Start();
           

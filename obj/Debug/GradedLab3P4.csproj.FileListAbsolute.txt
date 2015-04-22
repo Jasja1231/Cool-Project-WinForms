@@ -9,3 +9,13 @@ h:\Windows7\Documents\Visual Studio 2012\Projects\GradedLab3P4\GradedLab3P4\obj\
 h:\Windows7\Documents\Visual Studio 2012\Projects\GradedLab3P4\GradedLab3P4\obj\Debug\GradedLab3P4.pdb
 h:\Windows7\Documents\Visual Studio 2012\Projects\GradedLab3P4\GradedLab3P4\obj\Debug\GradedLab3P4.GameForm.resources
 h:\Windows7\Documents\Visual Studio 2012\Projects\GradedLab3P4\GradedLab3P4\obj\Debug\GradedLab3P4.Field.resources
+C:\Users\Home\Documents\GitHub\Cool-Project-WinForms\bin\Debug\GradedLab3P4.exe.config
+C:\Users\Home\Documents\GitHub\Cool-Project-WinForms\obj\Debug\GradedLab3P4.exe
+C:\Users\Home\Documents\GitHub\Cool-Project-WinForms\obj\Debug\GradedLab3P4.pdb
+C:\Users\Home\Documents\GitHub\Cool-Project-WinForms\bin\Debug\GradedLab3P4.exe
+C:\Users\Home\Documents\GitHub\Cool-Project-WinForms\bin\Debug\GradedLab3P4.pdb
+C:\Users\Home\Documents\GitHub\Cool-Project-WinForms\obj\Debug\GradedLab3P4.Field.resources
+C:\Users\Home\Documents\GitHub\Cool-Project-WinForms\obj\Debug\GradedLab3P4.Form1.resources
+C:\Users\Home\Documents\GitHub\Cool-Project-WinForms\obj\Debug\GradedLab3P4.GameForm.resources
+C:\Users\Home\Documents\GitHub\Cool-Project-WinForms\obj\Debug\GradedLab3P4.Properties.Resources.resources
+C:\Users\Home\Documents\GitHub\Cool-Project-WinForms\obj\Debug\GradedLab3P4.csproj.GenerateResource.Cache
