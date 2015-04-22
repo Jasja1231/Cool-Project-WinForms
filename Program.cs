@@ -24,6 +24,7 @@ namespace GradedLab3P4
             //appcontx.MainForm.Show();
            
             //Thread.Sleep(2000);
+            Application.AddMessageFilter(new MessageHandler());
             Application.Run(new Form1());
             Application.Run(new GameForm());
         }

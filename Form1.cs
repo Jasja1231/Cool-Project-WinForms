@@ -15,9 +15,8 @@ namespace GradedLab3P4
     public partial class Form1 : Form
     {
        
-        Bitmap image1;
-        
-
+       private Bitmap image1;
+       
 
         public Form1()
         {
@@ -52,11 +51,7 @@ namespace GradedLab3P4
          }
           
 
-        
-
-        
-        
-        private void Form1_Load(object sender, EventArgs e)
+         private void Form1_Load(object sender, EventArgs e)
         {
            image1 = (Bitmap)Image.FromFile("C:\\Users\\Home\\Documents\\GitHub\\Cool-Project-WinForms\\bin\\YinYangRedSmal.JPG", true);
            BackColor = Color.White; //should be white
@@ -68,7 +63,6 @@ namespace GradedLab3P4
             image1 = rotateImage(image1, 2);
             BackgroundImage = (Image)image1;
             BackgroundImageLayout = ImageLayout.Stretch;
-            image1.Save("C:\\Users\\Home\\Documents\\GitHub\\Cool-Project-WinForms\\YinYangRedSmal.JPG");
         }
 
         private void CloseTimer_Tick(object sender, EventArgs e)

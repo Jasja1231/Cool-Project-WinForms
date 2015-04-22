@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Drawing2D;
 
 namespace GradedLab3P4
 {
@@ -20,7 +21,8 @@ namespace GradedLab3P4
         {
             InitializeComponent();
             this.Visible = false;
-            
+
+            Application.AddMessageFilter(new MessageHandler());
             
             MyTimer.Interval = (2202); // 2 seconds = 2 * 10^3 = 2000
             MyTimer.Tick += new EventHandler(MyTimer_Tick);
@@ -45,10 +47,11 @@ namespace GradedLab3P4
             board.Dock = DockStyle.Fill;
             board.ColumnStyles.Clear();
             board.RowStyles.Clear();
+            panelBase.Controls.Clear();
+            board.Controls.Clear();
             //set number of rows and columns +2 for menubar and tool strip
             board.RowCount = rows;
             board.ColumnCount = cols;
-
 
             panelBase.Dock = DockStyle.Fill;
             //set number of rows and columns
@@ -64,7 +67,7 @@ namespace GradedLab3P4
                 board.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60));
             }
 
-            board.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25));
+           // board.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25));
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < cols; j++) {
@@ -81,7 +84,12 @@ namespace GradedLab3P4
         
         private void trackBar_ValueChanged(object sender, EventArgs e)
         {
-            CreateGame(trackBar1.Value, trackBar1.Value);
+            CreateGame(trackBar1.Value + 2, trackBar1.Value + 2);
         }
+
+
+
+
+      
     }
 }
