@@ -29,22 +29,14 @@ namespace GradedLab3P4
             this.Paint += Circle_Paint;
         }
 
-        protected override void OnPaint(System.Windows.Forms.PaintEventArgs e)
-        {
-            GraphicsPath grPath = new GraphicsPath();
-            grPath.AddEllipse(0, 0, ClientSize.Width, ClientSize.Height);
-            this.Region = new System.Drawing.Region(grPath);
-            base.OnPaint(e);
-        }
-
-
+        
         public void Field_Click(object sender, EventArgs e)
         {
             MouseEventArgs m = (MouseEventArgs)e;
 
             if (m.Button == MouseButtons.Right)
             {
-                check = -1;
+                //check = -1;
                 cm = new ContextMenu();
                 cm.MenuItems.Add("Reset", cm_func);
 
@@ -64,7 +56,7 @@ namespace GradedLab3P4
                             this.Paint -= Circle_Paint;
                             this.Paint += yingpaint;
                             Player = Player + 1;
-                            check = -1;
+                            check = -1;  
                         }
                         else if (Player == 2) //yang
                         {
@@ -84,23 +76,26 @@ namespace GradedLab3P4
 
         }
 
-
         //menu strip 
         private void cm_func(object sender, EventArgs e) {
-            check = 0;
+
+            
+
             MenuItem item = sender as MenuItem;
             ContextMenu menu = item.GetContextMenu();
             Control source = menu.SourceControl;
+           
             Field ying = (Field)source;
-       //     if (ying.check == 1)
+           if (ying.check == 1)
                 ying.Paint -= ying.yingpaint;
-       //     if (ying.check == -1)
+           if (ying.check == -1)
                 ying.Paint -= ying.yangpaint;
-            if (ying.check != 0)
+           if (ying.check != 0)
                 ying.Paint += ying.Circle_Paint;
             ying.check = 0;
             ying.Refresh();
 
+            check = 0;
         }
 
         //Paint Main circle 
@@ -113,91 +108,108 @@ namespace GradedLab3P4
 
         //Region setter - yion
         public void yingpaint (object sender,  PaintEventArgs e){
-            var buttonPath = new GraphicsPath();
-            var buttonPath2 = new GraphicsPath();
-            var buttonPath3 = new GraphicsPath();
-            var buttonPath4 =new GraphicsPath();
-            var buttonPath5 =new GraphicsPath();
 
-            var  borderPath =new GraphicsPath();
-            var borderPath2 = new GraphicsPath();
+            var BigCircle = new GraphicsPath();   // path for background border
+            var SmallCircle = new GraphicsPath();   // path for working area
 
-            Rectangle newRectangle = this.ClientRectangle; //circleArea whol space
-            Rectangle border1 = newRectangle;
-            Rectangle border2 = new Rectangle(new Point(this.ClientRectangle.Right * 1 / 100, this.ClientRectangle.Bottom * 1 / 100), new Size(this.Size.Width * 98 / 100, this.Size.Height * 98 / 100));
-            Rectangle circle1 = new Rectangle(new Point (this.ClientRectangle.Right * 1/4, this.ClientRectangle.Top), new Size(this.Size.Width/2, this.Size.Height/2));
-            Rectangle circle2 = new Rectangle(new Point(this.ClientRectangle.Right * 1/4, this.ClientRectangle.Bottom/2), new Size(this.Size.Width / 2, this.Size.Height / 2));
-            Rectangle region = new Rectangle(new Point(this.ClientRectangle.Left, this.ClientRectangle.Top), this.ClientRectangle.Size);
-            Rectangle small1 = new Rectangle(new Point(this.ClientRectangle.Right / 2 - this.Size.Height / 20, this.ClientRectangle.Bottom * 3 / 4 - this.Size.Height / 10), new Size(this.Size.Width / 10, this.Size.Height / 10));
-            Rectangle small2 = new Rectangle(new Point(this.ClientRectangle.Right / 2 - this.Size.Height / 20, this.ClientRectangle.Bottom * 1 / 4 - this.Size.Height / 10), new Size(this.Size.Width / 10, this.Size.Height / 10));
+            Rectangle BigCircleRect = this.ClientRectangle;
+            Rectangle SmallCircleRect = new Rectangle(new Point(this.ClientRectangle.Right * 5 / 100, this.ClientRectangle.Bottom * 5 / 100), new Size(this.Size.Width * 90 / 100, this.Size.Height * 90 / 100));
+
+            BigCircle.AddEllipse(BigCircleRect);
+            SmallCircle.AddEllipse(SmallCircleRect);
+
+            //Border added
+            Region region = new Region(BigCircle);
+            region.Xor(SmallCircle);
             
-           
-            // Create a circle within the new rectangle.
-            borderPath.AddEllipse(border1);
-            borderPath2.AddEllipse(border2);
 
-            buttonPath.AddPie(newRectangle, 270 ,180);
-            buttonPath2.AddEllipse(circle1);
-            buttonPath3.AddPie(circle2, 270, 180);
-            buttonPath4.AddEllipse(small1);
-            buttonPath5.AddEllipse(small2);
 
-            // Set the button's Region property to the newly created  
-            // circle region.
-            Region b_region = new Region(borderPath);
-            b_region.Xor(borderPath2);
-            Region r = new Region(buttonPath);
-            r.Union(buttonPath2);
-            r.Xor(buttonPath3);
-            r.Union(buttonPath4);
-            r.Xor(buttonPath5);
-            r.Union(b_region);
-            this.Region = r;
+            Rectangle SmallerCircleRect1 = new Rectangle((new Point((SmallCircleRect.Right - SmallCircleRect.Left) * 1/2 - this.ClientRectangle.Right * 9/10 * 1/ 4 + 4, SmallCircleRect.Top)), new Size(SmallCircleRect.Size.Width * 1 / 2, SmallCircleRect.Size.Height * 1 / 2));
+            var SmallerCircle1 = new GraphicsPath();
+            SmallerCircle1.AddEllipse(SmallerCircleRect1);
+            region.Union(SmallerCircle1);
+
+
+
+             Rectangle SmallerCircleRect2 = new Rectangle((new Point((SmallCircleRect.Right - SmallCircleRect.Left) * 1/2 - this.ClientRectangle.Right * 9/10 * 1 / 4 + 4, SmallerCircleRect1.Bottom - 1)), new Size(SmallCircleRect.Size.Width * 1 / 2 + 2, SmallCircleRect.Size.Height * 1 / 2 + 2));
+             var SmallerCircle2 = new GraphicsPath();
+             SmallerCircle2.AddEllipse(SmallerCircleRect2);
+             region.Union(SmallerCircle2);
+
+
+             var HalfSmallCircle = new GraphicsPath();
+             HalfSmallCircle.AddPie(SmallCircleRect, 270, 180);
+             region.Union(HalfSmallCircle);
+
+
+             region.Xor(SmallerCircle2);
+
+             Rectangle MiniCircleRect1 = new Rectangle(new Point(SmallerCircleRect1.Right/2 - SmallerCircleRect1.Size.Width/8 + 15, SmallerCircleRect1.Bottom/2 - SmallerCircleRect1.Size.Width/8), new Size(SmallerCircleRect1.Size.Width * 1/4, SmallerCircleRect1.Size.Height * 1/4));
+             var MiniCircle1 = new GraphicsPath();
+             MiniCircle1.AddEllipse(MiniCircleRect1);
+             region.Xor(MiniCircle1);
+
+
+             Rectangle MiniCircleRect2 = new Rectangle(new Point(SmallerCircleRect2.Right/2 - SmallerCircleRect2.Size.Width/8 + 15, SmallerCircleRect2.Bottom/2 - SmallerCircleRect2.Size.Width/8 + 30), new Size(SmallerCircleRect2.Size.Width * 1/4, SmallerCircleRect2.Size.Height * 1/4));
+             var MiniCircle2 = new GraphicsPath();
+             MiniCircle2.AddEllipse(MiniCircleRect2);
+             region.Xor(MiniCircle2);
+             
+             this.Region = region;
+
         }
 
 
         public void yangpaint(object sender, System.Windows.Forms.PaintEventArgs e)
         {
-            var buttonPath = new GraphicsPath();
-            var buttonPath2 = new GraphicsPath();
-            var buttonPath3 = new GraphicsPath();
-            var buttonPath4 = new GraphicsPath();
-            var buttonPath5 = new GraphicsPath();
+            var BigCircle = new GraphicsPath();   // path for background border
+            var SmallCircle = new GraphicsPath();   // path for working area
 
-            var borderPath = new GraphicsPath();
-            var borderPath2 = new GraphicsPath();
+            Rectangle BigCircleRect = this.ClientRectangle;
+            Rectangle SmallCircleRect = new Rectangle(new Point(this.ClientRectangle.Right * 5/100, this.ClientRectangle.Bottom * 5/100), new Size(this.Size.Width * 90/100, this.Size.Height * 90/100));
 
-            Rectangle newRectangle = this.ClientRectangle; //circleArea whol space
-            Rectangle border1 = newRectangle;
-            Rectangle border2 = new Rectangle(new Point(this.ClientRectangle.Right * 1 / 100, this.ClientRectangle.Bottom * 1 / 100), new Size(this.Size.Width * 98 / 100, this.Size.Height * 98 / 100));
-            Rectangle circle1 = new Rectangle(new Point(this.ClientRectangle.Right * 1 / 4, this.ClientRectangle.Top), new Size(this.Size.Width / 2, this.Size.Height / 2));
-            Rectangle circle2 = new Rectangle(new Point(this.ClientRectangle.Right * 1 / 4, this.ClientRectangle.Bottom / 2), new Size(this.Size.Width / 2, this.Size.Height / 2));
-            Rectangle region = new Rectangle(new Point(this.ClientRectangle.Left, this.ClientRectangle.Top), this.ClientRectangle.Size);
-            Rectangle small1 = new Rectangle(new Point(this.ClientRectangle.Right / 2 - this.Size.Height / 20, this.ClientRectangle.Bottom * 3 / 4 - this.Size.Height / 10), new Size(this.Size.Width / 10, this.Size.Height / 10));
-            Rectangle small2 = new Rectangle(new Point(this.ClientRectangle.Right / 2 - this.Size.Height / 20, this.ClientRectangle.Bottom * 1 / 4 - this.Size.Height / 10), new Size(this.Size.Width / 10, this.Size.Height / 10));
+            BigCircle.AddEllipse(BigCircleRect);
+            SmallCircle.AddEllipse(SmallCircleRect);
+            //Border added
+            Region region = new Region(BigCircle);
+            region.Xor(SmallCircle);
+           // this.Region = region;
+
+
+            Rectangle SmallerCircleRect1 = new Rectangle((new Point((SmallCircleRect.Right - SmallCircleRect.Left) * 1/2 - this.ClientRectangle.Right * 9/10 *1/4 +4 , SmallCircleRect.Top)), new Size(SmallCircleRect.Size.Width *1/2,SmallCircleRect.Size.Height * 1/2));
+            var SmallerCircle1 = new GraphicsPath();
+            SmallerCircle1.AddEllipse(SmallerCircleRect1);
+            region.Union(SmallerCircle1);
+
+            //this.Region = region;
+            Rectangle SmallerCircleRect2 = new Rectangle((new Point((SmallCircleRect.Right - SmallCircleRect.Left) * 1/2 - this.ClientRectangle.Right * 9/10 * 1/4+4, SmallerCircleRect1.Bottom-1)), new Size(SmallCircleRect.Size.Width * 1/2+2, SmallCircleRect.Size.Height * 1/2+2));
+            var SmallerCircle2 = new GraphicsPath();
+            SmallerCircle2.AddEllipse(SmallerCircleRect2);
+            region.Union(SmallerCircle2);
+
+
+            var HalfSmallCircle = new GraphicsPath();
+            HalfSmallCircle.AddPie(SmallCircleRect , 90 , 180);
+            region.Union(HalfSmallCircle);
+
+
+            region.Xor(SmallerCircle1);
+
+            Rectangle MiniCircleRect1 = new Rectangle(new Point(SmallerCircleRect1.Right/2 - SmallerCircleRect1.Size.Width/8 + 5 , SmallerCircleRect1.Bottom/2 - SmallerCircleRect1.Size.Width/8 ), new Size(SmallerCircleRect1.Size.Width * 1 / 4, SmallerCircleRect1.Size.Height * 1 / 4));
+            var MiniCircle1 = new GraphicsPath();
+            MiniCircle1.AddEllipse(MiniCircleRect1);
+            region.Xor(MiniCircle1);
+
             
-          
+            Rectangle MiniCircleRect2 = new Rectangle(new Point(SmallerCircleRect2.Right/2 - SmallerCircleRect2.Size.Width/8 + 15 , SmallerCircleRect2.Bottom/2 - SmallerCircleRect2.Size.Width / 8 + 30), new Size(SmallerCircleRect2.Size.Width * 1 / 4, SmallerCircleRect2.Size.Height * 1 / 4));
+            var MiniCircle2 = new GraphicsPath();
+            MiniCircle2.AddEllipse(MiniCircleRect2);
+            region.Xor(MiniCircle2);
 
-            // Create a circle within the new rectangle.
-            borderPath.AddEllipse(border1);
-            borderPath2.AddEllipse(border2);
 
-            buttonPath.AddPie(newRectangle, 90,180);
-            buttonPath2.AddEllipse(circle1);
-            buttonPath3.AddPie(circle2, 90,180);
-            buttonPath4.AddEllipse(small1);
-            buttonPath5.AddEllipse(small2);
-            // Set the button's Region property to the newly created  
-            // circle region.
-            Region b_region = new Region(borderPath);
-            b_region.Xor(borderPath2);
-            Region r = new Region(buttonPath);
-            r.Union(buttonPath2);
-            r.Xor(buttonPath3);
-            r.Union(buttonPath4);
-            r.Xor(buttonPath5);
-            r.Union(b_region);
-            this.Region = r;
+
+            this.Region = region;
+            
          }
 
     }

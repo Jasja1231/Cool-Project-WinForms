@@ -59,6 +59,7 @@
             this.Controls.Add(this.panelBase);
             this.Controls.Add(this.trackBar1);
             this.ImeMode = System.Windows.Forms.ImeMode.Katakana;
+            this.MinimumSize = new System.Drawing.Size(500, 500);
             this.Name = "GameForm";
             this.Text = "GameForm";
             this.Load += new System.EventHandler(this.GameForm_Load);

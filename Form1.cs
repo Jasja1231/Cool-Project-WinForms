@@ -53,7 +53,7 @@ namespace GradedLab3P4
 
          private void Form1_Load(object sender, EventArgs e)
         {
-           image1 = (Bitmap)Image.FromFile("C:\\Users\\Home\\Documents\\GitHub\\Cool-Project-WinForms\\bin\\YinYangRedSmal.JPG", true);
+           image1 = (Bitmap)Image.FromFile("YinYangRedSmal.JPG", true);
            BackColor = Color.White; //should be white
            TransparencyKey = Color.White;
         }

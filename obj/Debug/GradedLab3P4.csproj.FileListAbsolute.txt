@@ -20,3 +20,13 @@ C:\Users\Home\Documents\GitHub\Cool-Project-WinForms\obj\Debug\GradedLab3P4.Game
 C:\Users\Home\Documents\GitHub\Cool-Project-WinForms\obj\Debug\GradedLab3P4.Properties.Resources.resources
 C:\Users\Home\Documents\GitHub\Cool-Project-WinForms\obj\Debug\GradedLab3P4.csproj.GenerateResource.Cache
 C:\Users\Home\Documents\GitHub\Cool-Project-WinForms\obj\Debug\GradedLab3P4.csprojResolveAssemblyReference.cache
+H:\Windows7\Documents\GitHub\Cool-Project-WinForms\bin\Debug\GradedLab3P4.exe.config
+H:\Windows7\Documents\GitHub\Cool-Project-WinForms\bin\Debug\GradedLab3P4.exe
+H:\Windows7\Documents\GitHub\Cool-Project-WinForms\bin\Debug\GradedLab3P4.pdb
+H:\Windows7\Documents\GitHub\Cool-Project-WinForms\obj\Debug\GradedLab3P4.Field.resources
+H:\Windows7\Documents\GitHub\Cool-Project-WinForms\obj\Debug\GradedLab3P4.Form1.resources
+H:\Windows7\Documents\GitHub\Cool-Project-WinForms\obj\Debug\GradedLab3P4.GameForm.resources
+H:\Windows7\Documents\GitHub\Cool-Project-WinForms\obj\Debug\GradedLab3P4.Properties.Resources.resources
+H:\Windows7\Documents\GitHub\Cool-Project-WinForms\obj\Debug\GradedLab3P4.csproj.GenerateResource.Cache
+H:\Windows7\Documents\GitHub\Cool-Project-WinForms\obj\Debug\GradedLab3P4.exe
+H:\Windows7\Documents\GitHub\Cool-Project-WinForms\obj\Debug\GradedLab3P4.pdb
